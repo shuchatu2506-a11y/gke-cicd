@@ -1,0 +1,209 @@
+Delivered-To: chaturvedi.bhopal@gmail.com
+Received: by 2002:a59:cb65:0:b0:322:e90e:78a3 with SMTP id c5csp619256vqv;
+        Thu, 17 Nov 2022 02:01:57 -0800 (PST)
+X-Received: by 2002:a17:903:32cb:b0:188:cd12:c2e1 with SMTP id i11-20020a17090332cb00b00188cd12c2e1mr1905628plr.171.1668679316564;
+        Thu, 17 Nov 2022 02:01:56 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1668679316; cv=none;
+        d=google.com; s=arc-20160816;
+        b=xV9ZLUSSeFP9PLqizRb8ysS0UzZgZSgNcDCR1e5WKFJZB1cbk6kKjAf4MH2S5Fg0rt
+         ORX9xopNN0WsEMNKKpAvoPi5RCLgJmmVsEMkmhMklJWHPRtkIMS2KcAxop3IY3vEBxIP
+         FW/egA5y/rKY+YTHlKlSOE9aJeCnmcYV7bD359Uq6OkUcc4ddL+C/K2WpeQTe9VeOvbx
+         7Qre9X+iLI+PxvauRhW8WpL//lX1d+xo5IpRYsJw+JXFHjk7lsqj0K9hS1XnYfqOVgE8
+         yXjdoTRO4DNlnazqF0dsQCVTn/gDomwrf8SGWB//1jD7bfVpRWpr9itySmHr5sp4w8wh
+         /PfQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=DinqPJ1tj/yt+b3wynVUc9JJzSMYPXX62JNPVVTfsfw=;
+        b=f2GFdTU5rPcFm0ELcHCDazq4KX8xFlwWWXclIc2jeF4duN0DCr8R8qn+63Pr69z0Ve
+         TDWxfDoFswm+bKyGKQkD3ATO5zvkU8jrvDXnhA+4JkoReEsQh7NbxoXdYN4Jbe10zXbF
+         P/4WQrI2jGRiAjf+cKCaW+F6B3n3VpIgg47ObI81eiI5qEmo6ICwuIRTgiEULM+ACykr
+         D9Pj0v+ZzVrqyPtxUHx1whFoidDDvq+3byc94zVviGmN2iv1r1TBTTzSaXF3RH7PXAdN
+         mkgpUcsQvSHHRmLG3Cgm570hJetXPi2FO51u8PIooRCYfk7yX3mwQV7eef+Orymzb3RH
+         eykw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@optiva.com header.s=google header.b=IfGmM6+p;
+       spf=pass (google.com: domain of sandeep.kaur@optiva.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=sandeep.kaur@optiva.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=optiva.com
+Return-Path: <sandeep.kaur@optiva.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id y1-20020a17090a104100b00202cbaba46esor1982766pjd.10.2022.11.17.02.01.56
+        for <chaturvedi.bhopal@gmail.com>
+        (Google Transport Security);
+        Thu, 17 Nov 2022 02:01:56 -0800 (PST)
+Received-SPF: pass (google.com: domain of sandeep.kaur@optiva.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@optiva.com header.s=google header.b=IfGmM6+p;
+       spf=pass (google.com: domain of sandeep.kaur@optiva.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=sandeep.kaur@optiva.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=optiva.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=optiva.com; s=google;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=DinqPJ1tj/yt+b3wynVUc9JJzSMYPXX62JNPVVTfsfw=;
+        b=IfGmM6+pKdrzODF0tbFIKAc7eiThBl5ANKN+2Ti8wrpdM0O/ys+Dry0XEWiheW8Jh1
+         1pV7HoSsmGqHC+0VFBlMnVxvbvRPBOKy9bNSYHIMskq87Oz9MTWz9+d+/L9D3qeMx4Pm
+         HHm027B2178LIdhUu9GklrGXce9Phf4NXOIWI=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=DinqPJ1tj/yt+b3wynVUc9JJzSMYPXX62JNPVVTfsfw=;
+        b=nGTns+NmbT0In/v2OT+2zoA/LpSLMqHr6S5xay7OU3Q87FEsBVbnWk1TK8+y2BA9Cn
+         LlgG+WrnYM9y7z3YWu9HfvHQbUMIx1FWwPmsqBuMlSLfgqWmniijvR1n0+X9mijrmuLK
+         3gR1my+tp0x/qR4jh+mhL1rX3AXxlcx6ZxRcMtL6eT+C4Pvu1OGuGvG5v0PqYOM1v0Fp
+         UG+hN+RJrqtycMfiIeDzSH6eJCUlcyefwWTLSPhTBn98bLoFzcnSZ40PPtb4yPYQF4xH
+         mw6hXe5yHFusn2YlL1yiyjE0KP/6fFdoL3ZGjK9Z0gX5N65NOPKso7IHnSzT4i89rXA+
+         WAEw==
+X-Gm-Message-State: ANoB5pmut68n8A4D2FOWvS2mWfLblxMxIt6Arkln3nLJvh2b6Chxb7av
+	07nQeMuKVuS5PlOhwgrevqCNXNwWgrty1t79jPB1VrOjQrw=
+X-Google-Smtp-Source: AA0mqf4dNOheW4wklZYw1p5nfHsu90OSmGeAXHVT2KBDPsMj/7Iix256AvJmGd3zzesYeL9OqGr5fLEROjkpEtBHGU0=
+X-Received: by 2002:a17:90b:2705:b0:218:78ae:bdaa with SMTP id
+ px5-20020a17090b270500b0021878aebdaamr985647pjb.162.1668679315842; Thu, 17
+ Nov 2022 02:01:55 -0800 (PST)
+MIME-Version: 1.0
+References: <CAJ97i9kWFs-co_t5DNaw3He=gFXS98Car+Et=b3fAEE-kupZBg@mail.gmail.com>
+In-Reply-To: <CAJ97i9kWFs-co_t5DNaw3He=gFXS98Car+Et=b3fAEE-kupZBg@mail.gmail.com>
+From: Sandeep Kaur <sandeep.kaur@optiva.com>
+Date: Thu, 17 Nov 2022 15:31:44 +0530
+Message-ID: <CAPVZVNOAEtGb-=-bdkQREn0BXhO=U2qxwjX+rjPUCty7Z8caQg@mail.gmail.com>
+Subject: Re: Shubham_Chaturvedi_Confirmation_Required_for BGV
+To: shubham chaturvedi <chaturvedi.bhopal@gmail.com>
+Cc: DL IN background verification red-ambercase <backgroundverificationred-ambercase.in@capgemini.com>
+Content-Type: multipart/alternative; boundary="000000000000dd8e5005eda7ad45"
+
+--000000000000dd8e5005eda7ad45
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hi Shubham,
+
+We have responded to that email. Is there anything else pending from our
+end?
+
+Warm Regards
+
+*Sandeep Kaur* | HR
+
+M. +91 9501076758
+
+www.optiva.com <http://optiva.com/>
+
+[image: Optiva] <http://optiva.com/>
+
+
+On Thu, Nov 17, 2022 at 11:22 AM shubham chaturvedi <
+chaturvedi.bhopal@gmail.com> wrote:
+
+> Hi Sandeep/Team,
+>
+> My current Employer is not getting any revert from your end and they have
+> asked me to raise this request, I personally request you to please respon=
+d
+> to this email at the earliest.
+>
+> I am attaching the relieving letters as well which I have received from
+> Redknee HR and Optiva HR, Since both the companies are same I request you
+> to kindly confirm below details for my tenure in Optiva and Redknee
+> Technologies.
+>
+> I am hereby attaching the respective letter I have received from your end=
+.
+>
+> Kindly confirm details in below format please-
+>
+> Optiva Tenure-
+>
+> Date of Joining -
+> Date of Relieving -
+> Designation-
+> Reason of Leaving-
+> Verifier=E2=80=99s Name & Designation-
+> Verifier=E2=80=99s Department-
+> Current operational Address-
+>
+> Redknee Technologies Tenure-
+>
+> Date of Joining -
+> Date of Relieving -
+> Designation -
+> Reason of Leaving -
+> Verifier=E2=80=99s Name & Designation-
+> Verifier=E2=80=99s Department-
+> Current operational Address-
+>
+> Regards,
+> Shubham Chaturvedi
+>
+>
+>
+
+--000000000000dd8e5005eda7ad45
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">Hi=C2=A0Shubham,<div><br></div><div>We have responded to t=
+hat email. Is there=C2=A0anything else pending from our end?</div><div><br>=
+</div><div>Warm Regards</div><div><div><div dir=3D"ltr" class=3D"gmail_sign=
+ature" data-smartmail=3D"gmail_signature"><div dir=3D"ltr"><table width=3D"=
+100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" style=3D"min-width:4=
+40px"><tbody><tr><td width=3D"170" valign=3D"middle" height=3D"120" style=
+=3D"text-align:center"><br><table border=3D"0" width=3D"100%" cellpadding=
+=3D"0" cellspacing=3D"0" style=3D"font-family:Arial,Helvetica,sans-serif;te=
+xt-align:start;border-spacing:0px;border-collapse:collapse;color:rgb(51,51,=
+51);font-size:14px;min-width:440px!important"><tbody><tr><td width=3D"6" he=
+ight=3D"120" align=3D"left" valign=3D"top" style=3D"padding:0px;background-=
+color:rgb(255,181,42)"></td><td width=3D"10" height=3D"120" align=3D"left" =
+valign=3D"top" style=3D"padding:0px"></td><td align=3D"left" valign=3D"midd=
+le" style=3D"padding:0px"><table border=3D"0" width=3D"100%" style=3D"borde=
+r-spacing:0px;border-collapse:collapse;background-color:transparent"><tbody=
+><tr><td style=3D"font-family:Arial,Helvetica,sans-serif;padding:0px;line-h=
+eight:17px;color:rgb(0,0,0)"><b>Sandeep Kaur</b> | HR</td></tr><tr style=3D=
+"line-height:0;font-size:0px"><td height=3D"10" style=3D"padding:0px">=C2=
+=A0</td></tr><tr><td style=3D"font-family:Arial,Helvetica,sans-serif;paddin=
+g:0px;font-size:13px;line-height:15px;color:rgb(0,0,0)"><span style=3D"font=
+-weight:700">M.</span>=C2=A0+91 9501076758</td></tr><tr><td style=3D"font-f=
+amily:Arial,Helvetica,sans-serif;padding:0px;font-size:13px;line-height:15p=
+x;color:rgb(0,0,0)"><span style=3D"font-weight:700"></span></td></tr><tr st=
+yle=3D"line-height:0;font-size:0px"><td height=3D"5" style=3D"padding:0px">=
+=C2=A0</td></tr><tr><td style=3D"font-family:Arial,Helvetica,sans-serif;pad=
+ding:0px;font-size:13px;line-height:15px;color:rgb(44,43,150)"><a href=3D"h=
+ttp://optiva.com/" style=3D"color:rgb(9,201,255);background-color:transpare=
+nt" target=3D"_blank"><span style=3D"font-weight:700">www.optiva.com</span>=
+</a></td></tr><tr style=3D"line-height:0;font-size:0px"><td height=3D"5" st=
+yle=3D"padding:0px">=C2=A0</td></tr><tr><td valign=3D"bottom" style=3D"font=
+-family:Arial,Helvetica,sans-serif;padding:0px;font-size:13px;line-height:1=
+5px;color:rgb(44,43,150)"><a href=3D"http://optiva.com/" style=3D"color:rgb=
+(51,122,183);background-color:transparent" target=3D"_blank"><img src=3D"ht=
+tps://optiva.com/wp-content/uploads/C43A429E-9BAD-4E96-9748-BFD7AD0E1813.pn=
+g" width=3D"140" height=3D"50" alt=3D"Optiva" border=3D"0" style=3D"border:=
+0px;vertical-align:middle"></a></td></tr></tbody></table></td></tr></tbody>=
+</table></td><td valign=3D"middle" style=3D"text-align:left"></td></tr></tb=
+ody></table></div></div></div><br></div></div><br><div class=3D"gmail_quote=
+"><div dir=3D"ltr" class=3D"gmail_attr">On Thu, Nov 17, 2022 at 11:22 AM sh=
+ubham chaturvedi &lt;<a href=3D"mailto:chaturvedi.bhopal@gmail.com">chaturv=
+edi.bhopal@gmail.com</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quo=
+te" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204=
+);padding-left:1ex"><div dir=3D"ltr">Hi Sandeep/Team,=C2=A0<div><br></div><=
+div>My current Employer is not getting any revert from your=C2=A0end and th=
+ey have asked me to raise this request, I personally request you to please =
+respond to this email at the earliest.</div><div><br></div><div>I am attach=
+ing the relieving letters as well which I have received=C2=A0from Redknee H=
+R and Optiva HR, Since both the companies are same I request you to kindly =
+confirm below details for my tenure in Optiva and Redknee Technologies.</di=
+v><div><br></div><div>I am hereby attaching the respective letter I have re=
+ceived=C2=A0from your end.=C2=A0</div><div><br></div><div>Kindly confirm de=
+tails in below format please-=C2=A0<br><div><br></div><div>Optiva Tenure-=
+=C2=A0</div><div><br></div><div>Date of Joining -=C2=A0<br>Date of Relievin=
+g -=C2=A0<br>Designation-<br>Reason of Leaving-<br>Verifier=E2=80=99s Name =
+&amp; Designation-<br>Verifier=E2=80=99s Department-<br>Current operational=
+ Address-<br></div><div><br></div><div>Redknee Technologies Tenure-=C2=A0</=
+div><div><br></div><div>Date of Joining -=C2=A0<br>Date of Relieving -=C2=
+=A0<br>Designation -<br>Reason of Leaving -<br>Verifier=E2=80=99s Name &amp=
+; Designation-<br>Verifier=E2=80=99s Department-<br>Current operational Add=
+ress-</div><div><br></div><div>Regards,</div><div>Shubham Chaturvedi=C2=A0<=
+/div><div>=C2=A0=C2=A0<br></div><div><br></div></div></div>
+</blockquote></div>
+
+--000000000000dd8e5005eda7ad45--
